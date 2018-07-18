@@ -1,0 +1,172 @@
+// 公共变量
+$cofff: #fff;
+$cof0f: #f0f0f0;
+$cod5d: #d5d5d5;
+$coccc: #ccc;
+$co9a9: #9a9a9a;
+$co8fc: #8fc31f;
+$co333: #333;
+$co37c: #37c1f0;
+$co01: rgba(0, 0, 0, .1);
+$co000: #000;
+$coff9: #ff9a3e;
+$co009: #0096ff;
+$cocbc: #cbcbcb;
+$co636: #636363;
+$co929: #929292;
+$cofe0: #fe0002;
+$cob4b: #b4b4b4;
+$co008: #0086ff;
+$coe8f: #e8fbff;
+$co34b: #34bbff;
+$coff9900: #ff9900;
+$cof5f: #f5f5f5;
+$cofaf: #fafafa;
+
+@mixin family() {
+	font-family: PingFangSC-Medium;
+}
+// 背景图片地址和大小
+@mixin bgimg($url) {
+	background-image: url($url);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+@mixin border1($co: $coeb) {
+	border: 1px solid $co;
+}
+@mixin borderR($radius) {
+    border-radius: $radius;
+}
+//定位全屏
+@mixin allcover {
+	position:absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+//定位上下左右居中
+@mixin center {
+	position: absolute;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+//定位上下居中
+@mixin ct {
+	position: absolute;
+	top: 50%;
+    transform: translateY(-50%);
+}
+//定位左右居中
+@mixin cl {
+	position: absolute;
+	left: 50%;
+    transform: translateX(-50%);
+}
+//flex 布局和 子元素 对其方式
+@mixin fj($type: space-between,$align: center){
+	display: flex;
+	justify-content: $type;
+	align-items: $align;
+}
+@mixin fx($num: 1){
+	flex: $num;
+}
+// 页面主体内容部分显示样式
+@mixin cont($top: 2rem){
+	z-index: 9;
+	position: absolute;
+	top: $top;
+	bottom: 0;
+	overflow-y: auto;
+	width: 100%;
+}
+@mixin hw() {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+}
+//文字超出省略 $l 设置行数 默认1行
+@mixin omit($l: 1) {
+	display: -webkit-box;
+	display: -moz-box;
+    -webkit-line-clamp: $l;
+    -webkit-box-orient: vertical;
+    -moz-line-clamp: $l;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    overflow: hidden;
+}
+::-moz-placeholder { color: $cocbc; }
+::-webkit-input-placeholder { color: $cocbc; }
+:-ms-input-placeholder { color: $cocbc; }
+// 防止加载提示框被覆盖
+.mint-indicator-wrapper {
+	z-index: 11;
+}
+// 列表刷新加载提示
+.my-loadmore {
+	.mint-loadmore-top, .mint-loadmore-bottom {
+	    height: 1.6rem;
+	    line-height: 1.6rem;
+	    font-size: .7rem;
+	}
+	.mint-loadmore-top {
+		margin-top: -1.6rem;
+	}
+	.mint-loadmore-bottom {
+		margin-bottom: -1.6rem;
+	}
+}
+.my-toast.mint-toast {
+	min-width: 10em;
+}
+.my-switch {
+    .mint-switch-core {
+        width: 40px;
+        height: 20px;
+    }
+    .mint-switch-core::after {
+        width: 18px;
+        height: 18px;
+    }
+    .mint-switch-core::before {
+        width: 38px;
+        height: 18px;
+    }
+    .mint-switch-input:checked + .mint-switch-core {
+        border-color: $co37c;
+        background-color: $co37c;
+    }
+}
+// 长箭头
+.my-arrow {
+    position: relative;
+    display: block;
+    margin:5px 8px 5px 0;
+    height: 4px;
+    background: $co929;
+    &:after {
+        position: absolute;
+        content: '';
+        right: -8px;
+        top: -4px;
+        width: 0;
+        height: 0;
+        border-width: 6px 0 6px  8px;
+        border-color: transparent transparent transparent $co929;
+        border-style: solid;
+    }
+}
+// ios顶部留出20px高度
+.isios {
+    .header {
+        padding-top: 20px;
+    }
+    .content {
+        padding-top: 20px;
+    }
+}
